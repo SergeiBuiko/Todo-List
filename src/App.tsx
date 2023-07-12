@@ -1,26 +1,12 @@
-import { ThemeProvider, createTheme } from '@mui/material';
-import { pink, purple } from '@mui/material/colors';
-import { Route, Routes } from 'react-router-dom';
+import { Header, Main } from './components';
 import styles from './App.module.css';
+import { Box } from '@mui/material';
 
-const darkTheme = createTheme({
-  palette: {
-    primary: purple,
-    secondary: pink,
-  },
-});
-
-export function App() {
+export const App = () => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <div className={styles['main-page__container']}>
-        <div className={styles.content}>
-          <Routes>
-            <Route path="/" />
-          </Routes>
-          <h1>Hello!</h1>
-        </div>
-      </div>
-    </ThemeProvider>
+    <Box className={styles.App}>
+      <Header />
+      <Main />
+    </Box>
   );
-}
+};
