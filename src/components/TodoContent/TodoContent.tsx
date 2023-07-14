@@ -1,13 +1,11 @@
 import { Button, Paper, TextField } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
-import { ITodo } from '../../types/types';
+import { useTodo } from '../../utils';
 
-interface IMainProps {
-  addNewTodo: ({ description }: Omit<ITodo, 'id' | 'checked'>) => void;
-}
-
-export const Main = ({ addNewTodo }: IMainProps) => {
+export const TodoContent = () => {
+  const { addNewTodo } = useTodo();
   const [todoValue, setTodoValue] = useState('');
+
   const addTodo = (event: ChangeEvent<HTMLInputElement>) => {
     setTodoValue(event.target.value);
   };

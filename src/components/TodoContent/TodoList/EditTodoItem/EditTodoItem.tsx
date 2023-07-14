@@ -1,6 +1,6 @@
-import { Box, Button, Paper, TextField } from '@mui/material';
+import { Button, Paper, TextField } from '@mui/material';
 import { ITodo } from '../../../../types/types';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 interface IEditTodoItemProps {
   todo: ITodo;
@@ -11,8 +11,11 @@ export const EditTodoItem = ({ todo, changeTodo }: IEditTodoItemProps) => {
   const [editTodo, setEditTodo] = useState({ description: todo.description });
 
   const onClick = () => {
-    addNewTodo({ description: todoValue });
-    setTodoValue('');
+    changeTodo(editTodo);
+  };
+
+  const addTodo = (event: ChangeEvent<HTMLInputElement>) => {
+    setEditTodo({ description: event.target.value });
   };
 
   return (
@@ -31,7 +34,7 @@ export const EditTodoItem = ({ todo, changeTodo }: IEditTodoItemProps) => {
     >
       <TextField
         placeholder="Add your Todo"
-        value={todo.description}
+        value={editTodo.description}
         onChange={addTodo}
         sx={{ width: '70%' }}
       />
