@@ -38,7 +38,7 @@ export const EditTodoItem = ({ todo, changeTodo }: IEditTodoItemProps) => {
         onChange={addTodo}
         sx={{ width: '70%' }}
       />
-      <Button sx={{ height: 40 }} onClick={onClick}>
+      <Button color="success" sx={{ height: 40 }} onClick={onClick}>
         Edit
       </Button>
     </Paper>

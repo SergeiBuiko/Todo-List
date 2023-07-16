@@ -7,7 +7,7 @@ export const TodoList = () => {
   const { todoList, changeTodo, deleteTodo, editID, editTodoID, checkTodo } =
     useTodo();
   return (
-    <Box width="50%">
+    <Box width={{ xs: '90%', md: '60%' }}>
       {todoList.map((todo) => {
         if (todo.id === editTodoID) {
           return (

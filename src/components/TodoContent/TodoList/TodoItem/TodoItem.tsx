@@ -1,5 +1,10 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, IconButton, Paper, Typography } from '@mui/material';
+import CloseSharpIcon from '@mui/icons-material/CloseSharp';
+import EditIcon from '@mui/icons-material/Edit';
 import { ITodo } from '../../../../types/types';
+
+import Check from '@mui/icons-material/CheckBoxSharp';
+import CheckBox from '@mui/icons-material/CheckBoxOutlineBlankSharp';
 
 interface ITodoItemProps {
   todo: ITodo;
@@ -16,11 +21,10 @@ export const TodoItem = ({
 }: ITodoItemProps) => {
   return (
     <Paper
-      elevation={2}
+      elevation={3}
       sx={{
         display: 'flex',
-        padding: '20px 30px',
-        alignItems: 'center',
+        padding: { xs: '1px 1px ', sm: '10px 20px', md: '20px 30px' },
         justifyContent: 'space-between',
         marginTop: '20px',
         width: '100%',
@@ -29,22 +33,55 @@ export const TodoItem = ({
         cursor: 'pointer',
       }}
     >
-      <Box textAlign="left">
+      <Box
+        display={'flex'}
+        alignItems={'center'}
+        width={{ xs: '65%', md: 'auto' }}
+      >
         <Typography
           onClick={() => checkTodo(todo.id)}
           variant="h6"
           component="div"
-          gutterBottom
+          display="flex"
+          alignItems="center"
+          fontSize={'20px'}
           sx={{
             textDecoration: todo.checked ? 'line-through' : 'none',
+            fontSize: { xs: '16px', sm: '16px', md: '20px' },
           }}
         >
+          <IconButton
+            aria-label="edit"
+            color="primary"
+            sx={{ '&:hover': { color: 'green' }, transition: '0.3s' }}
+          >
+            {todo.checked ? <Check color="success" /> : <CheckBox />}
+          </IconButton>
+
           {todo.description}
         </Typography>
       </Box>
-      <Box sx={{ height: 40 }}>
-        <Button onClick={() => editID(todo.id)}>Edit</Button>
-        <Button onClick={() => deleteTodo(todo.id)}>Delete</Button>
+      <Box
+        width={{ xs: '35%', sm: 'auto', md: 'auto' }}
+        display={'flex'}
+        justifyContent={'flex-end'}
+      >
+        <IconButton
+          aria-label="edit"
+          color="primary"
+          sx={{ '&:hover': { color: 'green' }, transition: '0.3s' }}
+          onClick={() => editID(todo.id)}
+        >
+          <EditIcon />
+        </IconButton>
+        <IconButton
+          color="primary"
+          aria-label="cancel"
+          sx={{ '&:hover': { color: 'red' }, transition: '0.3s' }}
+          onClick={() => deleteTodo(todo.id)}
+        >
+          <CloseSharpIcon />
+        </IconButton>
       </Box>
     </Paper>
   );
