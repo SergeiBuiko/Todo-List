@@ -1,17 +1,14 @@
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { useTodo } from '../../utils';
+import styles from './Header.module.css';
 
 export const Header = () => {
   const { todoList } = useTodo();
   return (
-    <Box
-      display={'flex'}
-      width={{ xs: '90%', md: '60%' }}
-      alignItems={'center'}
-      justifyContent={'space-between'}
-    >
+    <Box className={styles.box}>
       <Typography
+        // className={styles.todolist}
         sx={{ fontSize: 40 }}
         variant="h1"
         component="h1"
@@ -20,6 +17,7 @@ export const Header = () => {
         Todo list
       </Typography>
       <Typography
+        // className={styles.tasks}
         sx={{ fontSize: 30 }}
         variant="h5"
         component="h5"

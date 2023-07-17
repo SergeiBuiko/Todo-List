@@ -1,6 +1,7 @@
 import { Button, Paper, TextField } from '@mui/material';
 import { ITodo } from '../../../../types/types';
 import { ChangeEvent, useState } from 'react';
+import styles from './EditTodoItem.module.css';
 
 interface IEditTodoItemProps {
   todo: ITodo;
@@ -19,26 +20,14 @@ export const EditTodoItem = ({ todo, changeTodo }: IEditTodoItemProps) => {
   };
 
   return (
-    <Paper
-      elevation={2}
-      sx={{
-        display: 'flex',
-        padding: '20px 30px',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: '20px',
-        width: '100%',
-        gap: 2,
-        cursor: 'pointer',
-      }}
-    >
+    <Paper className={styles.paper} elevation={2}>
       <TextField
+        className={styles.textfield}
         placeholder="Add your Todo"
         value={editTodo.description}
         onChange={addTodo}
-        sx={{ width: '70%' }}
       />
-      <Button color="success" sx={{ height: 40 }} onClick={onClick}>
+      <Button color="success" onClick={onClick} className={styles.button}>
         Edit
       </Button>
     </Paper>

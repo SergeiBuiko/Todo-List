@@ -2,6 +2,7 @@ import { IconButton, Paper, TextField } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
 import { useTodo } from '../../utils';
 import AddIcon from '@mui/icons-material/AddBoxOutlined';
+import styles from './TodoContent.module.css';
 
 export const TodoContent = () => {
   const { addNewTodo } = useTodo();
@@ -17,21 +18,12 @@ export const TodoContent = () => {
   };
 
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: { xs: '10px 5px 10px 0px', sm: '20px 20px', md: '20px 30px' },
-        width: { xs: '90%', md: '60%' },
-      }}
-    >
+    <Paper elevation={3} className={styles.paper}>
       <TextField
         placeholder="Add a new task"
+        className={styles.textfield}
         value={todoValue}
         onChange={addTodo}
-        sx={{ width: '85%', padding: '1px 14px' }}
       />
 
       <IconButton

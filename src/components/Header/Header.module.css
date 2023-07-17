@@ -1,0 +1,26 @@
+.box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.todolist {
+	font-size: 10px;
+}
+
+.tasks {
+	font-size: 60px;
+}
+
+
+@media screen and (max-width: 900px) {
+	.box {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.box {
+		width: 60%;
+	}
+}

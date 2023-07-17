@@ -1,6 +1,6 @@
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { ITodo } from '../../types/types';
-import { TODOLIST } from '../../const/const';
+import { TODOLIST } from '../../constants/constants';
 import { TodoContext } from './TodoContext';
 
 interface ITodoProviderProps {
@@ -56,26 +56,15 @@ export const TodoProvider = ({ children }: ITodoProviderProps) => {
     );
   };
 
-  const value = useMemo(
-    () => ({
-      todoList,
-      editTodoID,
-      deleteTodo,
-      editID,
-      changeTodo,
-      addNewTodo,
-      checkTodo,
-    }),
-    [
-      todoList,
-      editTodoID,
-      deleteTodo,
-      editID,
-      changeTodo,
-      addNewTodo,
-      checkTodo,
-    ]
-  );
+  const value = {
+    todoList,
+    editTodoID,
+    deleteTodo,
+    editID,
+    changeTodo,
+    addNewTodo,
+    checkTodo,
+  };
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 };
