@@ -35,7 +35,10 @@ export const TodoProvider = ({ children }: ITodoProviderProps) => {
     setTodoList([
       ...todoList,
       {
-        id: todoList[todoList.length - 1].id + 1,
+        id:
+          todoList.length === 0
+            ? todoList.length + 1
+            : todoList[todoList.length - 1].id + 1,
         description,
         checked: false,
       },

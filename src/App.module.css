@@ -1,7 +1,7 @@
 :root {
   --color-primary: #a463f2;
   --color-gray-dark: #ccc;
-  --color-gray: #f9fafb;
+  --color-gray: #EEEDED;
 }
 
 .App {
@@ -11,5 +11,5 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #eeeded;
+  background-color: var(--color-gray);
 }
