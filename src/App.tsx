@@ -1,9 +1,7 @@
-import { Header } from './components';
+import { Header, TodoContent, TodoList } from './components';
 import styles from './App.module.css';
 import { Box } from '@mui/material';
 import { TodoProvider } from './utils';
-import { TodoList } from './components';
-import { TodoContent } from './components';
 
 export const App = () => {
   return (

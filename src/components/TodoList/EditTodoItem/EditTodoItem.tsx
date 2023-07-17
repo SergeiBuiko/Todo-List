@@ -1,12 +1,7 @@
 import { Button, Paper, TextField } from '@mui/material';
-import { ITodo } from '../../../../types/types';
 import { ChangeEvent, useState } from 'react';
 import styles from './EditTodoItem.module.css';
-
-interface IEditTodoItemProps {
-  todo: ITodo;
-  changeTodo: ({ description }: Omit<ITodo, 'id' | 'checked'>) => void;
-}
+import { IEditTodoItemProps } from './types';
 
 export const EditTodoItem = ({ todo, changeTodo }: IEditTodoItemProps) => {
   const [editTodo, setEditTodo] = useState({ description: todo.description });

@@ -1,17 +1,10 @@
 import { Box, IconButton, Paper, Typography } from '@mui/material';
 import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 import EditIcon from '@mui/icons-material/Edit';
-import { ITodo } from '../../../../types/types';
 import styles from './TodoItem.module.css';
 import Check from '@mui/icons-material/CheckBoxSharp';
 import CheckBox from '@mui/icons-material/CheckBoxOutlineBlankSharp';
-
-interface ITodoItemProps {
-  todo: ITodo;
-  deleteTodo: (idTodo: ITodo['id']) => void;
-  checkTodo: (idTodo: ITodo['id']) => void;
-  editID: (idTodo: ITodo['id']) => void;
-}
+import { ITodoItemProps } from './types';
 
 export const TodoItem = ({
   todo,

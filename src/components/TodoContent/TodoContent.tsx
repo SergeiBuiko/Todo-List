@@ -26,18 +26,19 @@ export const TodoContent = () => {
         onChange={addTodo}
       />
 
-      <IconButton
-        aria-label="add"
-        color="primary"
-        size="small"
-        sx={{
-          '&:hover': { color: 'green' },
-          transition: '0.3s',
-        }}
-        onClick={onClick}
-      >
-        <AddIcon />
-      </IconButton>
+      {todoValue ? (
+        <IconButton
+          className={styles.add_button}
+          color="primary"
+          onClick={onClick}
+        >
+          <AddIcon />
+        </IconButton>
+      ) : (
+        <IconButton disabled>
+          <AddIcon />
+        </IconButton>
+      )}
     </Paper>
   );
 };

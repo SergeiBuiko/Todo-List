@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { TodoItem } from './TodoItem/TodoItem';
 import { EditTodoItem } from './EditTodoItem/EditTodoItem';
-import { useTodo } from '../../../utils';
+import { useTodo } from '../../utils';
 
 export const TodoList = () => {
   const { todoList, changeTodo, deleteTodo, editID, editTodoID, checkTodo } =
