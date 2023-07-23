@@ -6,7 +6,7 @@ interface ITodoContextProps {
   todoList: ITodo[];
   changeTodo: ({ description }: Omit<ITodo, 'id' | 'checked'>) => void;
   deleteTodo: (idTodo: ITodo['id']) => void;
-  checkTodo: (idTodo: ITodo['id']) => void;
+  // checkTodo: (idTodo: ITodo['id']) => void;
   editID: (idTodo: ITodo['id']) => void;
   addNewTodo: ({ description }: Omit<ITodo, 'id' | 'checked'>) => void;
 }
@@ -16,7 +16,7 @@ export const TodoContext = createContext<ITodoContextProps>({
   editTodoID: null,
   changeTodo: () => {},
   deleteTodo: () => {},
-  checkTodo: () => {},
+  // checkTodo: () => {},
   editID: () => {},
   addNewTodo: () => {},
 });

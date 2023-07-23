@@ -45,16 +45,16 @@ export const TodoProvider = ({ children }: ITodoProviderProps) => {
     ]);
   };
 
-  const checkTodo = (idTodo: ITodo['id']) => {
-    setTodoList(
-      todoList.map((todo) => {
-        if (todo.id === idTodo) {
-          return { ...todo, checked: !todo.checked };
-        }
-        return todo;
-      })
-    );
-  };
+  // const checkTodo = (idTodo: ITodo['id']) => {
+  //   setTodoList(
+  //     todoList.map((todo) => {
+  //       if (todo.id === idTodo) {
+  //         return { ...todo, checked: !todo.checked };
+  //       }
+  //       return todo;
+  //     })
+  //   );
+  // };
 
   const value = {
     todoList,
@@ -63,7 +63,7 @@ export const TodoProvider = ({ children }: ITodoProviderProps) => {
     editID,
     changeTodo,
     addNewTodo,
-    checkTodo,
+    // checkTodo,
   };
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;

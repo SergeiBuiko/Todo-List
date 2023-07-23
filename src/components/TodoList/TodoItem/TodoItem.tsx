@@ -5,29 +5,38 @@ import styles from './TodoItem.module.css';
 import Check from '@mui/icons-material/CheckBoxSharp';
 import CheckBox from '@mui/icons-material/CheckBoxOutlineBlankSharp';
 import { ITodoItemProps } from './types';
+import { NoteSlice } from '../../../store/reducers/NoteSlice';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 
 export const TodoItem = ({
   todo,
   deleteTodo,
-  checkTodo,
+  // checkTodo,
   editID,
 }: ITodoItemProps) => {
+  const { checkTodo, count } = useAppSelector((state) => state.noteReducer);
+  const { checkNoteToComplete, increment } = NoteSlice.actions;
+  const dispatch = useAppDispatch();
+
+  console.log(count);
+  console.log(checkTodo);
   return (
     <Paper
       elevation={3}
       className={styles.paper}
       sx={{
-        opacity: todo.checked ? 0.5 : 1,
+        opacity: todo.checkTodo ? 0.5 : 1,
       }}
     >
       <Box className={styles.box}>
         <Typography
           className={styles.typography}
-          onClick={() => checkTodo(todo.id)}
+          // onClick={() => dispatch(checkNoteToComplete())}
+          onClick={() => dispatch(increment(5))}
           variant="h6"
           component="div"
           sx={{
-            textDecoration: todo.checked ? 'line-through' : 'none',
+            textDecoration: checkTodo ? 'line-through' : 'none',
             fontSize: { xs: '16px', sm: '16px', md: '20px' },
           }}
         >
